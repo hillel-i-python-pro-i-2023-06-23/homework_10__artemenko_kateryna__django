@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path("", include("apps.base.urls")),
+    path("generate-humans/", include("apps.homework_11.urls")),
 ]
