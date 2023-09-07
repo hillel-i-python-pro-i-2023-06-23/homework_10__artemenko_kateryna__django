@@ -6,7 +6,7 @@ def index(request):
         request=request,
         template_name="base/home_page.html",
         context={
-            "greetings_text": f"Hello, world!=)",
+            "greetings_text": " Hello! ",
             "title": "Home page",
         },
     )
