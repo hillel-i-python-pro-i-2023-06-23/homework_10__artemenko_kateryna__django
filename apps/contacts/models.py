@@ -5,6 +5,11 @@ class Contact(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=13)
 
+    is_auto_generated = models.BooleanField(
+        blank=False,
+        default=False,
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True,
         blank=False,
