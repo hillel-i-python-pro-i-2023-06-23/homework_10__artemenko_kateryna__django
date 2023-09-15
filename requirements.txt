@@ -1,5 +1,5 @@
 # Core for web.
-django==4.2.3
+django==4.2.4
 
 # [code_style]-[BEGIN]
 # Pre-commit hook.
