@@ -1,8 +1,12 @@
-from django.http import HttpResponse
-# from django.shortcuts import render
-
-# Create your views here.
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Hello, world!")
+    return render(
+        request=request,
+        template_name="base/home_page.html",
+        context={
+            "greetings_text": " Hello! ",
+            "title": "Home page",
+        },
+    )
