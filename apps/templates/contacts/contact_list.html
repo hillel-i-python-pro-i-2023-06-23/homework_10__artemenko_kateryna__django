@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Contacts</h1>
     <ol>
-        {% for contact in contacts %}
+        {% for contact in object_list %}
             <li>
                 <span>{{ contact.name }}</span>
                 <span> - </span>
