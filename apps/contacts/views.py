@@ -1,8 +1,11 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+
+from apps.contacts.forms import GenerateForm
 from apps.contacts.models import Contact
 from apps.contacts.services.delete_contacts import delete_contacts
+from apps.contacts.services.generate_and_save_contacts import generate_and_save_contacts
 
 
 class ContactsListView(ListView):
@@ -31,12 +34,38 @@ class ContactsDeleteView(DeleteView):
     success_url = reverse_lazy("contacts:contacts_list")
 
 
-def generate_contacts_view(request):
+def generate_contacts_view__raw_form(request):
+    if request.method == "POST":
+        amount = int(request.POST["amount"])
+
+        generate_and_save_contacts(amount=amount)
+
     return render(
         request=request,
         template_name="contacts/contact_generate.html",
         context=dict(
             contacts_list=Contact.objects.all(),
+        ),
+    )
+
+
+def generate_contacts_view(request):
+    if request.method == "POST":
+        form = GenerateForm(request.POST)
+
+        if form.is_valid():
+            amount = form.cleaned_data["amount"]
+
+            generate_and_save_contacts(amount=amount)
+    else:
+        form = GenerateForm
+
+    return render(
+        request=request,
+        template_name="contacts/contact_generate.html",
+        context=dict(
+            contacts_list=Contact.objects.all(),
+            form=form,
         ),
     )
 

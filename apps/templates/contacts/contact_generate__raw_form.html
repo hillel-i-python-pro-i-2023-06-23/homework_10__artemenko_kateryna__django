@@ -5,8 +5,10 @@
 
     <form method="POST" style="margin-bottom: 1em;">
         {% csrf_token %}
-
-        {{ form.as_p }}
+        <label>
+            <span>Amount</span>
+            <input type="number" name="amount" value="5"/>
+        </label>
 
         <button type="submit">Generate</button>
     </form>
