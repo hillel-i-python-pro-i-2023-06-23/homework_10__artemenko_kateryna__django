@@ -1,9 +1,6 @@
-import logging
 from django.core.management.base import BaseCommand
 
-
-from apps.contacts.models import Contact
-from apps.contacts.services.generate_contacts import generate_contacts
+from apps.contacts.services.generate_and_save_contacts import generate_and_save_contacts
 
 
 class Command(BaseCommand):
@@ -18,14 +15,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         amount: int = options["amount"]
 
-        logger = logging.getLogger("django")
-
-        queryset = Contact.objects.all()
-
-        logger.info(f"Current amount of contacts before: {queryset.count()}")
-
-        for contact in generate_contacts(amount=amount):
-            contact.is_auto_generated = True
-            contact.save()
-
-        logger.info(f"Current amount of contacts after: {queryset.count()}")
+        generate_and_save_contacts(amount=amount)

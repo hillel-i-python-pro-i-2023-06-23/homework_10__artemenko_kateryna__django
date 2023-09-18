@@ -2,15 +2,6 @@
 
 {% block content %}
     <h1>Contacts</h1>
-    <ol>
-        {% for contact in object_list %}
-            <li>
-                <span>{{ contact.name }}</span>
-                <span> - </span>
-                <span>{{ contact.phone }}</span>
-                <span> - </span>
-                <span>{{ contact.modified_at }}</span>
-            </li>
-        {% endfor %}
-    </ol>
+
+    {% include "contacts/_contact_list_base.html" with contacts_list=object_list %}
 {% endblock %}
