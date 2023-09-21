@@ -45,6 +45,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     "apps.base",
+    "apps.users",
     "apps.homework11",
     "apps.contacts",
 ]
@@ -64,6 +65,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "core.urls"
+
+AUTH_USER_MODEL = "users.User"
 
 TEMPLATES = [
     {
