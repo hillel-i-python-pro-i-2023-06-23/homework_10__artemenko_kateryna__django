@@ -80,3 +80,15 @@ init-dev-i-create-superuser:
 # Generate contacts
 generate_contacts:
 	@python manage.py generate_contacts --amount 15
+
+
+.PHONY: init_contacts_data
+# Init contacts data
+init_contacts_data:
+	@python3 manage.py init_contacts_data
+
+
+.PHONY: init-apps-data
+# Init apps data
+init-apps-data:
+	@make init_contacts_data

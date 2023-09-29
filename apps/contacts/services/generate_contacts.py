@@ -10,7 +10,7 @@ faker = Faker()
 def generate_contact() -> Contact:
     return Contact(
         name=faker.first_name(),
-        phone=faker.phone_number(),
+        birthday=faker.date(),
     )
 
 
