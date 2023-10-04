@@ -85,7 +85,7 @@ generate_contacts:
 .PHONY: init_contacts_data
 # Init contacts data
 init_contacts_data:
-	@python3 manage.py init_contacts_data
+	@python manage.py init_contacts_data
 
 
 .PHONY: init-apps-data

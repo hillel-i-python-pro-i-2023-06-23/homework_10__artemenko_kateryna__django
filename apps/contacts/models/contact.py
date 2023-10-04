@@ -19,7 +19,7 @@ class Contact(models.Model):
         null=False,
     )
 
-    colors = models.ManyToManyField(
+    groups = models.ManyToManyField(
         Group,
         related_name="animals",
     )
