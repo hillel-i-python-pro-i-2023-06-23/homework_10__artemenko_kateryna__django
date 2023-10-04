@@ -14,13 +14,13 @@ class ContactsListView(ListView):
 
 class ContactsCreateView(CreateView):
     model = Contact
-    fields = ("name", "phone")
+    fields = ("name", "birthday")
     success_url = reverse_lazy("contacts:contacts_list")
 
 
 class ContactsUpdateView(UpdateView):
     model = Contact
-    fields = ("name", "phone")
+    fields = ("name", "birthday")
     success_url = reverse_lazy("contacts:contacts_list")
 
     def get_context_data(self, **kwargs):
